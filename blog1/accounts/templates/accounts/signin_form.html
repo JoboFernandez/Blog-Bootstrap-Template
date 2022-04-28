@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="col-2 offset-5 mt-3 mb-3">
+    <h4 class="mb-3 text-center">Sign In</h4>
+    <form action="{% url 'accounts:signin' %}" method="post" enctype="multipart/form-data" class="p">
+        {% csrf_token %}
+
+        {{ form|crispy }}
+        <input type="submit" class="btn btn-success form-control mt-3" value="Sign In">
+    </form>
+
+    {% for message in messages %}
+    <div class="alert alert-danger mt-1 mb-1" role="alert">{{ message }}</div>
+    {% endfor %}
+</div>
+{% endblock %}

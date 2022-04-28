@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-6 offset-3 mt-3 mb-3">
+    <h4>Are you sure you want to delete {{ post }}</h4>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-danger" value="Confirm Delete">
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="col-6 offset-3 mt-3 mb-3">
+    <h4 class="mb-3">{{ action }} an Article</h4>
+    {{ form.media }}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" class="btn btn-success" value="{{ action }}">
+    </form>
+</div>
+{% endblock %}
